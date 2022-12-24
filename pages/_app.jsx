@@ -8,7 +8,6 @@ export default function App({ Component, pageProps }) {
       <CoinProvider>
         <Navbar />
         <Component {...pageProps} />
-        <Footer />
       </CoinProvider>
     </UserProvider>
   );

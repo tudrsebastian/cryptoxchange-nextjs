@@ -1,7 +1,16 @@
 import { BsGithub, BsLinkedin, BsFacebook, BsInstagram } from "react-icons/bs";
+import { useUser } from "@auth0/nextjs-auth0/client";
 const Footer = () => {
+  const { user } = useUser();
+
   return (
-    <div className="border rounded shadow-2xl container mx-auto w-4/6 px-24 mt-12">
+    <footer
+      className={
+        user
+          ? "border rounded shadow-2xl container mx-auto w-full px-24 mt-12"
+          : "border rounded shadow-2xl container mx-auto w-4/6 px-24 mt-12"
+      }
+    >
       <p className="text-center">Connect and follow me on social media</p>
       <div className="flex justify-center gap-12 w-4/6 mt-10 mb-4 mx-auto">
         <a
@@ -33,7 +42,7 @@ const Footer = () => {
           <BsGithub size={35} />
         </a>
       </div>
-    </div>
+    </footer>
   );
 };
 

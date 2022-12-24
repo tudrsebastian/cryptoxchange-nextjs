@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { Coins, Favorites } from "../components";
+import { Coins, Favorites, Footer } from "../components";
 import { useUser } from "@auth0/nextjs-auth0/client";
 export default function Home() {
   const [favorites, setFavorites] = useState([]);
@@ -36,6 +36,9 @@ export default function Home() {
         )}
         <Coins onAdd={onAdd} />
       </main>
+      <div className={user ? "mx-24 pl-96 pr-12 " : null}>
+        <Footer />
+      </div>
     </div>
   );
 }
