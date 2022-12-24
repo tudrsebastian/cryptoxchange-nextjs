@@ -6,15 +6,14 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 export default withPageAuthRequired(function getCoin() {
   const [coinInfo, setCoinInfo] = useState({});
   const [loading, setLoading] = useState(true);
+  const url = "https://api.coingecko.com/api/v3/coins";
   const router = useRouter();
   const { coin } = router.query;
 
   useEffect(() => {
     const getCoinInfo = async () => {
       try {
-        const res = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/${coin}`
-        );
+        const res = await axios.get(`${url}/${coin}`);
         setCoinInfo(res.data);
         setLoading(false);
       } catch (error) {
